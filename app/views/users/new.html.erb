@@ -1,0 +1,50 @@
+<div>
+	<form action="/users" method="post">
+		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+		<p>
+			<label>First Name</label>
+		</p>
+		<p>
+			<input type="text" name="user[first_name]">
+		</p>
+		<p>
+			<label>Last Name</label>
+		</p>
+		<p>
+			<input type="text" name="user[last_name]">
+		</p>
+		<p>
+			<label>Username</label>
+		</p>
+		<p>
+			<input type="text" name="user[username]">
+		</p>
+		<p>
+			<label>Email</label>
+		</p>
+		<p>
+			<input type="text" name="user[email]">
+		</p>
+		<p>
+			<label>Password</label>
+		</p>
+		<p>
+			<input type="password" name="user[password]">
+		</p>
+		<p>
+			<label>Confirm Password</label>
+		</p>
+		<p>
+			<input type="password" name="user[password_confirmation]">
+		</p>
+		<p>
+			<input type="submit" value="Register">
+		</p>
+	</form>
+	<a href="/sessions/new">Already have an account?  Click here to log in!</a>
+	<% if flash[:errors] %>
+			<% flash[:errors].each do |error| %>
+				<p class="error"><%=error%></p>
+			<% end %>
+		<% end %>
+</div>

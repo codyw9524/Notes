@@ -1,0 +1,24 @@
+<div>
+	<form action="/sessions" method="post">
+		<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+		<p>
+				<label>Username/Email</label>
+			</p>
+			<p>
+				<input type="text" name="email">
+			</p>
+			<p>
+				<label>Password</label>
+			</p>
+			<p>
+				<input type="password" name="password">
+			</p>
+			<p>
+				<input type="submit" value="Log In">
+			</p>
+		</form>
+		<a href="/users/new">Don't have an account?  Click here to register!</a>
+		<% if flash[:errors] %>
+			<p class="error"><%=flash[:errors]%></p>
+		<% end %>
+</div>

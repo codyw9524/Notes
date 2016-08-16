@@ -1,0 +1,20 @@
+<div class="col-md-4 left_content" id="left_content">
+	<input type="text" class="form-control search" placeholder="Search..." ng-model="note_filter">
+	<table class="table table-condensed table-hover">
+		<tr ng-repeat="note in notes | filter: note_filter | orderBy: '-created_at' track by $index">
+			<td class="left_note_icon" ng-click="show(note.id)"">
+				<a href="">{{note.title}}</a>
+				<p class="note_created_at">{{note.fromNow}}</p>
+			</td>
+			<td class="remove_link">
+				<a href="" ng-click="destroy(note.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="col-md-8" id="right_content">
+	<p class="text-center">{{note.formattedDate}}</p>
+	<textarea id="note_title" ng-keyup="updateTitle(note.id)" class="editable">{{note.title}}</textarea>
+	<hr>
+	<textarea id="note_content" ng-keyup="updateContent(note.id)" class="editable">{{note.content}}</textarea>
+</div>
